@@ -24,3 +24,6 @@ export const sellerServices = async (token) =>
       Authorization: `Bearer ${token}`,
     },
   });
+
+  export const read = async (serviceId) =>
+  await axios.get(`${process.env.REACT_APP_API}/service/${serviceId}`);

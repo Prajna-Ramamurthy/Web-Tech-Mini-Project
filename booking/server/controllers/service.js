@@ -9,7 +9,8 @@ export const create = async (req, res) => {
     let files = req.files;
 
     let service = new Service(fields);
-    service.postedBy = req.user._id;
+    // service.postedBy = req.user._id;
+    // console.log("incoming request => ", req.user);
     // handle image
     if (files.image) {
       service.image.data = fs.readFileSync(files.image.path);
@@ -31,11 +32,19 @@ export const create = async (req, res) => {
   }
 };
 
-export const services = async (req, res) => {
+/*export const services = async (req, res) => {
   let all = await Service.find({})
     .limit(24)
     .select("-image.data")
     .populate("postedBy", "_id name")
+    .exec();
+  // console.log(all);
+  res.json(all);
+};*/
+export const services = async (req, res) => {
+  let all = await Service.find({})
+    .limit(24)
+    .select("-image.data")
     .exec();
   // console.log(all);
   res.json(all);
@@ -50,10 +59,19 @@ export const image = async (req, res) => {
 };
 
 export const sellerServices = async (req, res) => {
-  let all = await Service.find({ postedBy: req.user._id })
+  //console.log("incoming request => ", req.user);
+  /*let all = await Service.find({ postedBy: req.user._id })
     .select("-image.data")
     .populate("postedBy", "_id name")
     .exec();
   console.log(all);
-  res.send(all);
+  res.send(all);*/
+};
+
+export const read = async (req, res) => {
+  let service = await Service.findById(req.params.serviceId)
+    .select("-image.data")
+    .exec();
+  console.log("SINGLE SERVICE", service);
+  res.json(service);
 };

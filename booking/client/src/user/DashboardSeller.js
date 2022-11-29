@@ -25,7 +25,8 @@ const DashboardSeller = () => {
 
   const handleClick = async () => {
     setLoading(true);
-    /*try {
+    /*
+    try {
       let res = await createConnectAccount(auth.token);
       console.log(res); // get login link
       window.location.href = res.data;
@@ -105,10 +106,10 @@ const DashboardSeller = () => {
       </div>
 
       <div className="row">
-        {services.map((h) => (
+        {services.map((s) => (
           <SmallCard
-            key={h._id}
-            h={h}
+            key={s._id}
+            s={s}
             showViewMoreButton={false}
             owner={true}
           />
@@ -127,12 +128,6 @@ const DashboardSeller = () => {
         <DashboardNav />
       </div>
 
-      {/*auth &&
-      auth.user &&
-      auth.user.stripe_seller &&
-      auth.user.stripe_seller.charges_enabled
-        ? connected()
-        : notConnected()*/}
       {auth &&
       auth.user
         ? connected()

@@ -12,7 +12,7 @@ import Register from "./auth/Register";
 import Dashboard from "./user/Dashboard";
 import DashboardSeller from "./user/DashboardSeller";
 import NewService from "./services/NewService";
-
+import ViewService from "./services/ViewService";
 /**
  * Lets create TopNavigation/menu bar so that we can easily TopNavigate between pages
  * lets write it in App.js before we move it to its own component
@@ -30,6 +30,7 @@ function App() {
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <PrivateRoute exact path="/dashboard/seller" component={DashboardSeller} />
         <PrivateRoute exact path="/services/new" component={NewService} />
+        <Route exact path="/service/:serviceId" component={ViewService} />
       </Switch>
     </BrowserRouter>
   );

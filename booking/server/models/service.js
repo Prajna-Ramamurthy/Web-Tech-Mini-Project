@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 const { ObjectId } = mongoose.Schema;
@@ -24,10 +24,10 @@ const serviceSchema = new Schema(
       required: "Price is required",
       trim: true,
     },
-    postedBy: {
+    /*postedBy: {
       type: ObjectId,
       ref: "User",
-    },
+    },*/
     image: {
       data: Buffer,
       contentType: String,

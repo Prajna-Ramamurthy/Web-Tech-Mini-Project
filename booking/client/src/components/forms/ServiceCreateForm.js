@@ -1,15 +1,15 @@
-import AlgoliaPlaces from "algolia-places-react";
+//import AlgoliaPlaces from "algolia-places-react";
 import { DatePicker, Select } from "antd";
 import moment from "moment";
 
 const { Option } = Select;
 
-const config = {
+/*const config = {
   appId: process.env.REACT_APP_ALGOLIA_APP_ID,
   apiKey: process.env.REACT_APP_ALGOLIA_API_KEY,
   language: "en",
   // countries: ["au"],
-};
+};*/
 
 const ServiceCreateForm = ({
   values,

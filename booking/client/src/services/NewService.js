@@ -45,10 +45,19 @@ const NewService = () => {
 
     let res = await createService(token, serviceData);
     console.log("SERVICE CREATE RES", res);
-    toast("New service is posted");
-    /*setTimeout(() => {
-      window.location.reload();
-    }, 1000);*/
+    toast.success("New service is posted");
+
+    /*try {
+      let res = await createHotel(token, hotelData);
+      console.log("HOTEL CREATE RES", res);
+      toast.success("New hotel is posted");
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    } catch (err) {
+      console.log(err);
+      toast.error(err.response.data);
+    }*/
   };
 
   const handleImageChange = (e) => {
